@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:pos_4ahif_learningcounter/Model/subjecthours.dart';
+
+import 'Pages/home_page.dart';
 
 void main() {
   runApp(const learningcounterApp());
@@ -9,33 +12,15 @@ class learningcounterApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var subjectHoursData = <SubjectHours>[];
+    bool loggedin = true;
     return MaterialApp(
-      title: 'Learning-Counter',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+          appBarTheme: const AppBarTheme(
+              backgroundColor: Color.fromRGBO(150, 183, 204, 100))
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      )
+      debugShowCheckedModeBanner: false,
+      home: MyHomePage(subjectHoursData: subjectHoursData),
     );
   }
 }
