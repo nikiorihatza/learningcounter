@@ -47,6 +47,9 @@ dependencies:
   path: ^1.8.2
   path_provider: ^2.0.13
   syncfusion_flutter_charts: ^20.4.52
+  number_inc_dec: ^0.8.0
+  holding_gesture: ^1.1.0
+  context_menus: ^0.1.0
 
 dev_dependencies:
   flutter_test:

@@ -3,9 +3,8 @@ class LearnNotification {
   String shortDesc;
   String description;
 
-  LearnNotification({
-    required this.notificationID,
-    required this.shortDesc,
-    required this.description
-  });
+  LearnNotification(
+      {required this.notificationID,
+      required this.shortDesc,
+      required this.description});
 }

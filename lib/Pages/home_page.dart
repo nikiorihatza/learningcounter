@@ -62,7 +62,7 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Container(
               margin: EdgeInsets.all(15),
               decoration: BoxDecoration(
-                  color: Color.fromRGBO(150, 183, 204, 150),
+                  color: Color.fromRGBO(150, 183, 204, 200),
                   border: Border.all(color: Colors.transparent),
                   borderRadius: BorderRadius.circular(5)),
               child: Column(

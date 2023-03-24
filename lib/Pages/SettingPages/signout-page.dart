@@ -17,5 +17,4 @@ class SignOutPage extends StatelessWidget {
       ),
     );
   }
-
 }

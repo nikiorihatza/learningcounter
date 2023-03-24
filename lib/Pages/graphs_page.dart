@@ -7,10 +7,13 @@ import '../Model/subjecthours.dart';
 
 class GraphPage extends StatelessWidget {
   var subjectHoursData = <SubjectHours>[];
+
   GraphPage({super.key, required this.subjectHoursData});
 
   @override
   Widget build(BuildContext context) {
+    late TooltipBehavior _tooltip = TooltipBehavior(enable: true);
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Graphs'),
@@ -20,21 +23,53 @@ class GraphPage extends StatelessWidget {
           ),
         ),
       ),
-      body: Center(
-        child: Container(
-          child: SfCircularChart(
-            series: <CircularSeries>[
-              DoughnutSeries<SubjectHours, String>(
-                dataSource: subjectHoursData,
-                xValueMapper: (SubjectHours data, _) => data.subject.name,
-                yValueMapper: (SubjectHours data, _) => data.hours,
-                pointColorMapper: (SubjectHours data, _) => data.subject.colorSub
-              )
-            ],
-          ),
+      body: Container(
+        child: ListView(
+          children: [
+            const Padding(
+              padding: EdgeInsets.fromLTRB(0, 20, 0, 0),
+              child: Center(
+                child: Text(
+                  'Circlular Chart',
+                  style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                ),
+              ),
+            ),
+            SfCircularChart(
+              series: <CircularSeries>[
+                DoughnutSeries<SubjectHours, String>(
+                    dataSource: subjectHoursData,
+                    xValueMapper: (SubjectHours data, _) => data.subject.name,
+                    yValueMapper: (SubjectHours data, _) => data.hours,
+                    pointColorMapper: (SubjectHours data, _) =>
+                        data.subject.colorSub)
+              ],
+            ),
+            const Padding(
+              padding: EdgeInsets.fromLTRB(0, 20, 0, 8),
+              child: Center(
+                child: Text(
+                  'Bar Chart',
+                  style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                ),
+              ),
+            ),
+            SfCartesianChart(
+                primaryXAxis: CategoryAxis(),
+                primaryYAxis:
+                    NumericAxis(minimum: 0, maximum: 40, interval: 10),
+                tooltipBehavior: _tooltip,
+                series: <ChartSeries<SubjectHours, String>>[
+                  BarSeries<SubjectHours, String>(
+                      dataSource: subjectHoursData,
+                      xValueMapper: (SubjectHours data, _) => data.subject.name,
+                      yValueMapper: (SubjectHours data, _) => data.hours,
+                      pointColorMapper: (SubjectHours data, _) =>
+                          data.subject.colorSub)
+                ]),
+          ],
         ),
-      )
+      ),
     );
   }
-
 }

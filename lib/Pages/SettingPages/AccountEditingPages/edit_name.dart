@@ -101,12 +101,17 @@ class EditNameFormPageState extends State<EditNameFormPage> {
                         width: 330,
                         height: 50,
                         child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            primary: Colors.blueGrey,
+                            // fixedSize: Size(250, 50),
+                          ),
                           onPressed: () {
                             // Validate returns true if the form is valid, or false otherwise.
                             if (_formKey.currentState!.validate() &&
                                 isAlpha(firstNameController.text +
                                     secondNameController.text)) {
-                              updateUserValue("${firstNameController.text} ${secondNameController.text}");
+                              updateUserValue(
+                                  "${firstNameController.text} ${secondNameController.text}");
                               Navigator.pop(context);
                             }
                           },

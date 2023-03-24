@@ -43,25 +43,26 @@ class _AccountPageState extends State<AccountPage> {
                   style: TextStyle(
                       fontSize: 30,
                       fontWeight: FontWeight.w700,
-                      color: Colors.blueGrey
-                  ),
-                )
-            ),
+                      color: Colors.blueGrey),
+                )),
           ),
           InkWell(
-              onTap: () {
-                navigateSecondPage(const EditImagePage());
-              },
-              child: DisplayImage(
-                imagePath: user.image,
-                onPressed: () {},
-              ),
+            onTap: () {
+              navigateSecondPage(const EditImagePage());
+            },
+            child: DisplayImage(
+              imagePath: user.image,
+              onPressed: () {},
+            ),
           ),
           buildUserInfoDisplay(user.name, 'Name', const EditNameFormPage()),
           buildUserInfoDisplay(user.phone, 'Phone', const EditPhoneFormPage()),
           buildUserInfoDisplay(user.email, 'Email', const EditEmailFormPage()),
-          Expanded(flex: 4,child: buildAbout(user),)
-    ],
+          Expanded(
+            flex: 4,
+            child: buildAbout(user),
+          )
+        ],
       ),
     );
   }
@@ -86,24 +87,22 @@ class _AccountPageState extends State<AccountPage> {
               decoration: const BoxDecoration(
                   border: Border(
                       bottom: BorderSide(
-                        color: Colors.grey,
-                        width: 1,
-                      )
-                  )
-              ),
+                color: Colors.grey,
+                width: 1,
+              ))),
               child: Row(
                 children: [
                   Expanded(
                       child: TextButton(
-                        onPressed: () {
-                          navigateSecondPage(editPage);
-                        },
-                        child: Text(
-                          getValue,
-                          style: const TextStyle(fontSize: 16, height: 1.4, color: Colors.blueGrey),
-                        ),
-                      )
-                  ),
+                    onPressed: () {
+                      navigateSecondPage(editPage);
+                    },
+                    child: Text(
+                      getValue,
+                      style: const TextStyle(
+                          fontSize: 16, height: 1.4, color: Colors.blueGrey),
+                    ),
+                  )),
                   const Icon(
                     Icons.keyboard_arrow_right,
                     color: Colors.grey,
@@ -117,62 +116,58 @@ class _AccountPageState extends State<AccountPage> {
       );
 
   Widget buildAbout(User user) => Padding(
-    padding: const EdgeInsets.only(bottom: 10),
-    child: Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const Text(
-          'Tell Us About Yourself',
-          style: TextStyle(
-            fontSize: 15,
-            fontWeight: FontWeight.w500,
-            color: Colors.grey,
-          ),
-        ),
-        const SizedBox(height: 1),
-        Container(
-          width: 350,
-          height: 200,
-          decoration: const BoxDecoration(
-            border: Border(
-              bottom: BorderSide(
+        padding: const EdgeInsets.only(bottom: 10),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Text(
+              'Tell Us About Yourself',
+              style: TextStyle(
+                fontSize: 15,
+                fontWeight: FontWeight.w500,
+                color: Colors.grey,
+              ),
+            ),
+            const SizedBox(height: 1),
+            Container(
+              width: 350,
+              height: 200,
+              decoration: const BoxDecoration(
+                  border: Border(
+                      bottom: BorderSide(
                 color: Colors.grey,
                 width: 1,
-              )
-            )
-          ),
-          child: Row(children: [
-            Expanded(
-              child: TextButton(
-                onPressed: (){
-                  navigateSecondPage(EditDescriptionFormPage());
-                },
-                child: Padding(
-                  padding: EdgeInsets.fromLTRB(0, 10, 10, 10),
-                  child: Align(
-                    alignment: Alignment.topLeft,
-                    child: Text(
-                      user.aboutMeDescription,
-                      style: const TextStyle(
-                        fontSize: 16,
-                        height: 1.4,
-                          color: Colors.blueGrey,
-                      )
+              ))),
+              child: Row(children: [
+                Expanded(
+                  child: TextButton(
+                    onPressed: () {
+                      navigateSecondPage(EditDescriptionFormPage());
+                    },
+                    child: Padding(
+                      padding: EdgeInsets.fromLTRB(0, 10, 10, 10),
+                      child: Align(
+                        alignment: Alignment.topLeft,
+                        child: Text(user.aboutMeDescription,
+                            style: const TextStyle(
+                              fontSize: 16,
+                              height: 1.4,
+                              color: Colors.blueGrey,
+                            )),
+                      ),
                     ),
                   ),
                 ),
-              ),
-            ),
-            const Icon(
-              Icons.keyboard_arrow_right,
-              color: Colors.grey,
-              size: 40,
+                const Icon(
+                  Icons.keyboard_arrow_right,
+                  color: Colors.grey,
+                  size: 40,
+                )
+              ]),
             )
-          ]),
-        )
-      ],
-    ),
-  );
+          ],
+        ),
+      );
 
   FutureOr onGoBack(dynamic value) {
     setState(() {});

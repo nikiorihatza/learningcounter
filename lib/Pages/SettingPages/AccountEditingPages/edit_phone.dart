@@ -7,6 +7,7 @@ import '../../../Widgets/appbar_widget.dart';
 // This class handles the Page to edit the Phone Section of the User Profile.
 class EditPhoneFormPage extends StatefulWidget {
   const EditPhoneFormPage({Key? key}) : super(key: key);
+
   @override
   EditPhoneFormPageState createState() {
     return EditPhoneFormPageState();
@@ -81,6 +82,10 @@ class EditPhoneFormPageState extends State<EditPhoneFormPage> {
                           width: 320,
                           height: 50,
                           child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              primary: Colors.blueGrey,
+                              // fixedSize: Size(250, 50),
+                            ),
                             onPressed: () {
                               // Validate returns true if the form is valid, or false otherwise.
                               if (_formKey.currentState!.validate() &&

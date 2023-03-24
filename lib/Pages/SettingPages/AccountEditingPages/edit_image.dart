@@ -41,7 +41,8 @@ class _EditImagePageState extends State<EditImagePage> {
                   width: 330,
                   child: GestureDetector(
                     onTap: () async {
-                      final image = await ImagePicker().pickImage(source: ImageSource.gallery);
+                      final image = await ImagePicker()
+                          .pickImage(source: ImageSource.gallery);
 
                       if (image == null) return;
 
@@ -63,6 +64,10 @@ class _EditImagePageState extends State<EditImagePage> {
                     width: 330,
                     height: 50,
                     child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        primary: Colors.blueGrey,
+                        // fixedSize: Size(250, 50),
+                      ),
                       onPressed: () {},
                       child: const Text(
                         'Update',

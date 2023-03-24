@@ -12,48 +12,40 @@ class SettingsPage extends StatelessWidget {
   final List<MenuItem> settingItems = MenuItems.itemsSettings;
 
   const SettingsPage({super.key});
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Settings'),
-        shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.vertical(
-            bottom: Radius.circular(15),
+        appBar: AppBar(
+          title: const Text('Settings'),
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.vertical(
+              bottom: Radius.circular(15),
+            ),
           ),
         ),
-      ),
-      body: CupertinoListSection.insetGrouped(
-        children: <CupertinoListTile>[
-          CupertinoListTile.notched(
-            title: Text('Account'),
-            leading: Icon(CupertinoIcons.person),
-            trailing: CupertinoListTileChevron(),
-            onTap: () => Navigator.of(context).push(
-                CupertinoPageRoute(
-                    builder: (context) => const AccountPage()
-                )
+        body: CupertinoListSection.insetGrouped(
+          children: <CupertinoListTile>[
+            CupertinoListTile.notched(
+              title: Text('Account'),
+              leading: Icon(CupertinoIcons.person),
+              trailing: CupertinoListTileChevron(),
+              onTap: () => Navigator.of(context).push(CupertinoPageRoute(
+                  builder: (context) => const AccountPage())),
             ),
-          ),
-          CupertinoListTile.notched(
-            title: Text('Appearance'),
-            leading: Icon(Icons.color_lens_outlined),
-            trailing: CupertinoListTileChevron(),
-            onTap: () => Navigator.of(context).push(
-                CupertinoPageRoute(
-                    builder: (context) => const AppearancePage()
-                )
+            CupertinoListTile.notched(
+              title: Text('Appearance'),
+              leading: Icon(Icons.color_lens_outlined),
+              trailing: CupertinoListTileChevron(),
+              onTap: () => Navigator.of(context).push(CupertinoPageRoute(
+                  builder: (context) => const AppearancePage())),
             ),
-          ),
-          const CupertinoListTile.notched(
-            title: Text('Sign out'),
-            leading: Icon(Icons.logout),
-            onTap: null,
-          ),
-        ],
-      )
-    );
+            const CupertinoListTile.notched(
+              title: Text('Sign out'),
+              leading: Icon(Icons.logout),
+              onTap: null,
+            ),
+          ],
+        ));
   }
-
 }

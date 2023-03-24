@@ -5,12 +5,16 @@ import 'package:pos_4ahif_learningcounter/Widgets/subjectHour_widget.dart';
 import '../Model/subjecthours.dart';
 
 class SubjectHourList extends StatelessWidget {
-  final List<SubjectHours> subjecthoursList;
+  List<SubjectHours> subjecthoursList;
 
   SubjectHourList({
     super.key,
     required this.subjecthoursList,
   });
+
+  void deleteItem(SubjectHours subjectHours) {
+    subjecthoursList.remove(subjectHours);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -19,9 +23,9 @@ class SubjectHourList extends StatelessWidget {
         child: subjecthoursList.isEmpty
             ? const Center(child: Text('Nothing learned yet :('))
             : ListView.builder(
-            shrinkWrap: true,
-            itemCount: subjecthoursList.length,
-            itemBuilder: (_, index) =>
-                SubjectHourWidget(subjecthoursList[index])));
+                shrinkWrap: true,
+                itemCount: subjecthoursList.length,
+                itemBuilder: (_, index) => SubjectHourWidget(
+                    subjecthoursList[index], subjecthoursList)));
   }
 }

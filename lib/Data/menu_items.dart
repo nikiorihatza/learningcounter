@@ -2,11 +2,7 @@ import 'package:pos_4ahif_learningcounter/Model/menu_item.dart';
 import 'package:flutter/material.dart';
 
 class MenuItems {
-  static const List<MenuItem> itemsMenu = [
-    itemHome,
-    itemCount,
-    itemGraphs
-  ];
+  static const List<MenuItem> itemsMenu = [itemHome, itemCount, itemGraphs];
 
   static const List<MenuItem> itemsSettings = [
     itemAccount,
@@ -15,8 +11,8 @@ class MenuItems {
   ];
 
   static const itemHome = MenuItem(
-      text: 'Home',
-      icon: Icons.home,
+    text: 'Home',
+    icon: Icons.home,
   );
 
   static const itemCount = MenuItem(
@@ -30,8 +26,8 @@ class MenuItems {
   );
 
   static const itemAccount = MenuItem(
-      text: 'Account',
-      icon: Icons.person,
+    text: 'Account',
+    icon: Icons.person,
   );
 
   static const itemAppearance = MenuItem(

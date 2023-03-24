@@ -17,8 +17,8 @@ class learningcounterApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(
           appBarTheme: const AppBarTheme(
-              backgroundColor: Color.fromRGBO(150, 183, 204, 100))
-      ),
+        backgroundColor: Color.fromRGBO(150, 183, 204, 100),
+      )),
       debugShowCheckedModeBanner: false,
       home: MyHomePage(subjectHoursData: subjectHoursData),
     );

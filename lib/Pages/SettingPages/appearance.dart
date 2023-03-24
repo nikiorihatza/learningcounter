@@ -24,10 +24,7 @@ class _AppearancePageState extends State<AppearancePage> {
         alignment: Alignment.center,
         child: Center(
           child: Column(
-            children: const [
-              Icon(CupertinoIcons.time),
-              Text("Coming soon!")
-            ],
+            children: const [Icon(CupertinoIcons.time), Text("Coming soon!")],
           ),
         ),
       ),

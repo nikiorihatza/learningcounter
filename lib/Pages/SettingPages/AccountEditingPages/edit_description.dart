@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import '../../../Data/user_data.dart';
 import '../../../Widgets/appbar_widget.dart';
 
-
 // This class handles the Page to edit the About Me Section of the User Profile.
 class EditDescriptionFormPage extends StatefulWidget {
   const EditDescriptionFormPage({super.key});
@@ -78,6 +77,10 @@ class _EditDescriptionFormPageState extends State<EditDescriptionFormPage> {
                           width: 350,
                           height: 50,
                           child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              primary: Colors.blueGrey,
+                              // fixedSize: Size(250, 50),
+                            ),
                             onPressed: () {
                               // Validate returns true if the form is valid, or false otherwise.
                               if (_formKey.currentState!.validate()) {
