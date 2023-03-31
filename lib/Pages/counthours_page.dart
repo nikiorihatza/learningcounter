@@ -46,7 +46,7 @@ class _CountHoursPageState extends State<CountHoursPage> {
         ),
         body: Column(children: [
           Padding(
-            padding: EdgeInsets.all(8),
+            padding: const EdgeInsets.all(8),
             child: SubjectHourList(subjecthoursList: subjectHoursData),
           ),
           Container(
@@ -65,22 +65,51 @@ class _CountHoursPageState extends State<CountHoursPage> {
         ]));
   }
 
+  void _alertExistingSuject() {
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(
+                Radius.circular(
+                  20.0,
+                ),
+              ),
+            ),
+            contentPadding: const EdgeInsets.only(
+              top: 10.0,
+            ),
+            title: Text('Subject already existing'),
+            content: Container(
+              width: double.infinity,
+              height: 60,
+              padding: const EdgeInsets.all(8.0),
+              child: ElevatedButton(
+                  onPressed: Navigator.of(context).pop,
+                  child: const Text('Ok',
+                      style: TextStyle(color: Colors.blueGrey))),
+            ),
+          );
+        });
+  }
+
   void _addSubject(BuildContext context) {
     showDialog(
         context: context,
         builder: (context) {
           return AlertDialog(
-              shape: RoundedRectangleBorder(
+              shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.all(
                   Radius.circular(
                     20.0,
                   ),
                 ),
               ),
-              contentPadding: EdgeInsets.only(
+              contentPadding: const EdgeInsets.only(
                 top: 10.0,
               ),
-              title: Text(
+              title: const Text(
                 "Add Subject",
                 style: TextStyle(fontSize: 24.0),
               ),
@@ -93,8 +122,8 @@ class _CountHoursPageState extends State<CountHoursPage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
+                      const Padding(
+                        padding: EdgeInsets.all(8.0),
                         child: Text(
                           "Subject Name",
                         ),
@@ -122,7 +151,7 @@ class _CountHoursPageState extends State<CountHoursPage> {
                         height: 60,
                         padding: const EdgeInsets.all(8.0),
                         child: FloatingActionButton.extended(
-                          label: Text('Select color',
+                          label: const Text('Select color',
                               style: TextStyle(color: Colors.black)),
                           backgroundColor: Colors.white,
                           icon: Icon(
@@ -134,6 +163,9 @@ class _CountHoursPageState extends State<CountHoursPage> {
                                 context: context,
                                 builder: (BuildContext context) {
                                   return AlertDialog(
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(20)),
                                     title: const Text('Pick a color!'),
                                     content: SingleChildScrollView(
                                       child: MaterialPicker(
@@ -150,7 +182,10 @@ class _CountHoursPageState extends State<CountHoursPage> {
                                       ElevatedButton(
                                         style: ElevatedButton.styleFrom(
                                             primary: Colors.blueGrey),
-                                        child: const Text('DONE'),
+                                        child: const Text(
+                                          'DONE',
+                                          style: TextStyle(color: Colors.white),
+                                        ),
                                         onPressed: () {
                                           Navigator.of(context)
                                               .pop(); //dismiss the color picker
@@ -169,12 +204,15 @@ class _CountHoursPageState extends State<CountHoursPage> {
                         child: ElevatedButton(
                           onPressed: () {
                             setState(() {
-                              subjectHoursData.add(SubjectHours(
+                              var subjecthourNew = SubjectHours(
                                   subject: Subject(
                                       name: subjectnameController.text,
                                       colorSub: newcolor),
-                                  hours: 0));
+                                  hours: 0);
+
+                              subjectHoursData.add(subjecthourNew);
                             });
+
                             subjectnameController.clear();
                             Navigator.of(context).pop();
                           },

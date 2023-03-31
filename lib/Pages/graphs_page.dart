@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:pos_4ahif_learningcounter/Model/subject.dart';
 import 'package:pos_4ahif_learningcounter/Widgets/subjecthour_list.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 import 'package:flutter/material.dart';
@@ -23,41 +24,42 @@ class GraphPage extends StatelessWidget {
           ),
         ),
       ),
-      body: Container(
-        child: ListView(
-          children: [
-            const Padding(
-              padding: EdgeInsets.fromLTRB(0, 20, 0, 0),
-              child: Center(
-                child: Text(
-                  'Circlular Chart',
-                  style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-                ),
+      body: ListView(
+        children: [
+          const Padding(
+            padding: EdgeInsets.fromLTRB(0, 20, 0, 0),
+            child: Center(
+              child: Text(
+                'Circlular Chart',
+                style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
               ),
             ),
-            SfCircularChart(
-              series: <CircularSeries>[
-                DoughnutSeries<SubjectHours, String>(
-                    dataSource: subjectHoursData,
-                    xValueMapper: (SubjectHours data, _) => data.subject.name,
-                    yValueMapper: (SubjectHours data, _) => data.hours,
-                    pointColorMapper: (SubjectHours data, _) =>
-                        data.subject.colorSub)
-              ],
-            ),
-            const Padding(
-              padding: EdgeInsets.fromLTRB(0, 20, 0, 8),
-              child: Center(
-                child: Text(
-                  'Bar Chart',
-                  style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-                ),
+          ),
+          SfCircularChart(
+            series: <CircularSeries>[
+              DoughnutSeries<SubjectHours, String>(
+                  dataSource: subjectHoursData,
+                  xValueMapper: (SubjectHours data, _) => data.subject.name,
+                  yValueMapper: (SubjectHours data, _) => data.hours,
+                  pointColorMapper: (SubjectHours data, _) =>
+                      data.subject.colorSub)
+            ],
+          ),
+          const Padding(
+            padding: EdgeInsets.fromLTRB(0, 20, 0, 8),
+            child: Center(
+              child: Text(
+                'Bar Chart',
+                style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
               ),
             ),
-            SfCartesianChart(
+          ),
+          Padding(
+            padding: EdgeInsets.fromLTRB(20, 0, 30, 0),
+            child: SfCartesianChart(
                 primaryXAxis: CategoryAxis(),
                 primaryYAxis:
-                    NumericAxis(minimum: 0, maximum: 40, interval: 10),
+                    NumericAxis(minimum: 0, maximum: getMax(subjectHoursData), interval: 10),
                 tooltipBehavior: _tooltip,
                 series: <ChartSeries<SubjectHours, String>>[
                   BarSeries<SubjectHours, String>(
@@ -67,9 +69,22 @@ class GraphPage extends StatelessWidget {
                       pointColorMapper: (SubjectHours data, _) =>
                           data.subject.colorSub)
                 ]),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
+
+  double getMax(List<SubjectHours> list) {
+    double max = 0;
+
+    for (SubjectHours subjecthour in list) {
+      if (subjecthour.hours > max) {
+        max = subjecthour.hours.toDouble();
+      }
+    }
+
+    return max;
+  }
 }
+

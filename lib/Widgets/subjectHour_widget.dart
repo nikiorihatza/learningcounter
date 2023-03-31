@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
+import 'package:get/state_manager.dart';
 import 'package:number_inc_dec/number_inc_dec.dart';
 import 'package:pos_4ahif_learningcounter/Model/subjecthours.dart';
 
@@ -35,7 +37,7 @@ class _SubjectHourWidgetState extends State<SubjectHourWidget> {
       ),
       onPressed: () {
         setState(() {
-          subjectlist.remove(subjectHours);
+          widget.subjectlist.remove(subjectHours);
           Navigator.of(context).pop();
         });
       },
@@ -80,12 +82,23 @@ class _SubjectHourWidgetState extends State<SubjectHourWidget> {
             ),
             actions: [
               TextButton(
-                child: const Text('Ok'),
+                child: const Text(
+                    'Ok',
+                  style: TextStyle(
+                    color: Colors.blueGrey
+                  ),
+                ),
                 onPressed: () {
                   setState(() {
                     widget.subjectHours.hours = widget.subjectHours.hours +
                         int.parse(increaseController.text);
+                    widget.subjectHours.history.addAll({
+                      DateTime.now() : int.parse(increaseController.text)
+                    });
                   });
+                  if (kDebugMode) {
+                    print(widget.subjectHours.history);
+                  }
                   Navigator.of(context).pop();
                 },
               ),

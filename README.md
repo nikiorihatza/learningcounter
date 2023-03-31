@@ -1,16 +1,20 @@
-# pos_4ahif_learningcounter
+# LearnTrack
 
-A new Flutter project.
+The feature of tracking your learning progress.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+This project was made by a student from Austria.
 
-A few resources to get you started if this is your first Flutter project:
+Features of the app:
+ 
+    - Custom Themes
+    - Whole application in Cupertino-Standards
+    - Web / Mobile application
+    - Userfriendly UI ;)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+If you want to support me:  \
+[Paypal](https://link-url-here.org)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Your LearnTrack-Developer \
+<img src="/Users/michele/Documents/Niki/Schule/POS - 3AHIFw/pos_4ahif_learningcounter/ios/Runner/Assets.xcassets/AppIcon.appiconset/256.png"/>
