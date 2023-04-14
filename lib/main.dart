@@ -1,14 +1,15 @@
+import 'package:calendar_view/calendar_view.dart';
 import 'package:flutter/material.dart';
 import 'package:pos_4ahif_learningcounter/Model/subjecthours.dart';
 
 import 'Pages/home_page.dart';
 
 void main() {
-  runApp(const learningcounterApp());
+  runApp(const LearningcounterApp());
 }
 
-class learningcounterApp extends StatelessWidget {
-  const learningcounterApp({super.key});
+class LearningcounterApp extends StatelessWidget {
+  const LearningcounterApp({super.key});
 
   @override
   Widget build(BuildContext context) {

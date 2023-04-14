@@ -4,6 +4,7 @@ import 'package:pos_4ahif_learningcounter/Data/menu_items.dart';
 import 'package:pos_4ahif_learningcounter/Model/menu_item.dart';
 import 'package:pos_4ahif_learningcounter/Pages/counthours_page.dart';
 import 'package:pos_4ahif_learningcounter/Pages/graphs_page.dart';
+import 'package:pos_4ahif_learningcounter/Pages/history_page.dart';
 import 'package:pos_4ahif_learningcounter/Pages/settings_page.dart';
 import 'package:pos_4ahif_learningcounter/Widgets/notficiation_list.dart';
 import 'package:pos_4ahif_learningcounter/Widgets/notification_widget.dart';
@@ -117,6 +118,11 @@ class _MyHomePageState extends State<MyHomePage> {
         Navigator.of(context).push(MaterialPageRoute(
             builder: (context) =>
                 GraphPage(subjectHoursData: subjectHoursData)));
+        break;
+      case MenuItems.itemHistory:
+        Navigator.of(context).push(MaterialPageRoute(
+            builder: (context) =>
+                HistoryPage(subjectHoursData: subjectHoursData)));
     }
   }
 }

@@ -40,7 +40,6 @@ dependencies:
   material_color_generator: ^1.1.0
   provider: ^6.0.3
   get:
-  firebase_auth: ^4.2.9
   email_validator: ^2.1.16
   string_validator: ^1.0.0
   image_picker: ^0.8.6+4
@@ -50,6 +49,9 @@ dependencies:
   number_inc_dec: ^0.8.0
   holding_gesture: ^1.1.0
   context_menus: ^0.1.0
+  calendar_view:
+  time_planner: ^0.1.1
+  table_calendar:
 
 dev_dependencies:
   flutter_test:
